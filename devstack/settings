@@ -1,0 +1,7 @@
+# settings openstack-plugin-monitoring
+enable_service openstack-plugin-monitoring
+define_plugin openstack-plugin-monitoring
+
+# Directory usate
+PLUGIN_DIR=/opt/stack/openstack-plugin-monitoring
+SCRIPT_DIR=$PLUGIN_DIR/scripts
