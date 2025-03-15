@@ -2,6 +2,7 @@
 enable_service openstack-plugin-monitoring
 define_plugin openstack-plugin-monitoring
 
-# Directory usate
+# Directories
 PLUGIN_DIR=/opt/stack/openstack-plugin-monitoring
-SCRIPT_DIR=$PLUGIN_DIR/scripts
+SERVICE_DIR=$PLUGIN_DIR/devstack/service
+SYSTEMD_DIR=/etc/systemd/system

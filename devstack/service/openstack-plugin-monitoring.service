@@ -1,0 +1,12 @@
+[Unit]
+Description=Grafana service for OpenStack Plugin
+After=network.target
+
+[Service]
+User=grafana
+ExecStart=/usr/sbin/grafana-server -config /etc/grafana/grafana.ini
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
