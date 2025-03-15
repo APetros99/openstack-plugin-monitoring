@@ -13,28 +13,6 @@ echo "APP_DIR: $APP_DIR"
 echo "SERVICE_DIR: $SERVICE_DIR"
 echo "SYSTEMD_DIR: $SYSTEMD_DIR"
 
-function install_grafana {
-    echo "Installing Grafana..."
-    sudo apt-get update
-    sudo apt-get install -y apt-transport-https software-properties-common wget
-    wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-    sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
-    sudo apt-get update
-    sudo apt-get install -y grafana
-    sudo systemctl daemon-reload
-    sudo systemctl enable grafana-server
-    sudo systemctl start grafana-server
-    echo "Grafana installed successfully!"
-}
-
-function uninstall_grafana {
-    echo "Removing Grafana..."
-    sudo systemctl stop grafana-server
-    sudo apt-get purge -y grafana
-    sudo apt-get autoremove -y
-    echo "Grafana removed successfully!"
-}
-
 function install_app_dependencies {
     echo "Installing Python app dependencies..."
 
@@ -143,7 +121,6 @@ if is_service_enabled openstack-plugin-monitoring; then
             echo "ERROR: Failed to stop the monitoring service"; 
             exit 1 
         }
-        uninstall_grafana
     fi
 
     if [[ "$1" == "clean" ]]; then

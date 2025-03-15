@@ -1,11 +1,13 @@
 [Unit]
 Description=OpenStack Monitoring
-After=network.target grafana-server.service
+After=network.target
 
 [Service]
 User=petros
-WorkingDirectory=/opt/stack/openstack-plugin-monitoring/app
-ExecStart=/usr/bin/python3 app.py
+Type=simple
+WorkingDirectory=/opt/stack/openstack-plugin-monitoring
+ExecStart=/opt/stack/openstack-plugin-monitoring/app/venv/bin/python3 /opt/stack/openstack-plugin-monitoring/app/app.py
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
