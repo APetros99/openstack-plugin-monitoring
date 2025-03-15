@@ -1,8 +1,9 @@
-# settings openstack-plugin-monitoring
+# settings openstack
 enable_service openstack-plugin-monitoring
 define_plugin openstack-plugin-monitoring
 
-# Directories
+# Directory utilizzate
 PLUGIN_DIR=/opt/stack/openstack-plugin-monitoring
-SERVICE_DIR=$PLUGIN_DIR/devstack/service
+APP_DIR=/opt/stack/openstack-plugin-monitoring/app
+SERVICE_DIR=/opt/stack/openstack-plugin-monitoring/devstack/service
 SYSTEMD_DIR=/etc/systemd/system

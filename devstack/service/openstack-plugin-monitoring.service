@@ -1,12 +1,11 @@
 [Unit]
-Description=Grafana service for OpenStack Plugin
-After=network.target
+Description=OpenStack Monitoring
+After=network.target grafana-server.service
 
 [Service]
-User=grafana
-ExecStart=/usr/sbin/grafana-server -config /etc/grafana/grafana.ini
-Restart=always
-RestartSec=5
+User=petros
+WorkingDirectory=/opt/stack/openstack-plugin-monitoring/app
+ExecStart=/usr/bin/python3 app.py
 
 [Install]
 WantedBy=multi-user.target
