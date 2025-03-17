@@ -1,11 +1,11 @@
 [Unit]
-Description=OpenStack Monitoring
+Description=Openstack Plugin Monitoring
 After=network.target
 
 [Service]
 User=petros
 Type=simple
-WorkingDirectory=/opt/stack/openstack-plugin-monitoring
+WorkingDirectory=/opt/stack/openstack-plugin-monitoring/app
 ExecStart=/opt/stack/openstack-plugin-monitoring/app/venv/bin/python3 /opt/stack/openstack-plugin-monitoring/app/app.py
 Restart=on-failure
 
